@@ -1,28 +1,33 @@
 package com.hz;
 
+import java.util.Scanner;
+
 public class Main {
 
-    // READ THE INSTRUCTIONS IN THIS METHOD, PLEASE!!!
     public static void main(String[] args) {
+        // Declare the input var
+        int input;
 
-        // Lets print some cards
+        // Insantiate the printer, cards and scanner
         Printer printer = new Console();
+        PostCard postcard = new PostCard(printer);
+        GraduationCard graduationcard = new GraduationCard(printer);
+        ChristmasCard christmascard = new ChristmasCard(printer);
+        Scanner console = new Scanner(System.in);
 
-        // INSTRUCTIONS, READ CAREFULLY !!!!!!!!!!!!!!!!!!!!!!!!!!
-        // For a normal postcard use: true, false
-        // For a graduation card use: false, true
+        System.out.println("In this program you can choose from three cards");
+        System.out.println("1. Press 1 for the postcard");
+        System.out.println("2. Press 2 for the graduationcard");
+        System.out.println("3. Press 3 for the christmas card");
+        input = console.nextInt();
 
-
-        // ONLY SET ONE OF THE BOOLEAN PARAMETERS TO TRUE!!!!
-        // DON'T FORGET THAT!
-
-        // WE NEED TO MAKE THIS MESSY CODE BETTER IMHO, MAYBE ONE OF THE SKILLED
-        // HBO-ICT STUDENTS CAN HELP US OUT.
-
-        // IF WE HAVE TO ADD AN OTHER TYPE OF CARD...
-        // ...I QUIT THIS JOB.
-        PostCard card = new PostCard(printer, false, true);
-
-        card.print();
+        // Conditional Statements to print one of the cards based on user input
+        if (input == 1) {
+            postcard.print();
+        } else if (input == 2) {
+            graduationcard.print();
+        } else if (input == 3) {
+            christmascard.print();
+        }
     }
 }
